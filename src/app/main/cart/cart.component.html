@@ -1,0 +1,27 @@
+<br />
+<br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Order</th>
+      <th scope="col">Restaurnt Name</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let t of items; index as i">
+    <tr>
+      <td scope="row">{{ i+1 }}</td>
+      <td>{{ t.name }}</td>
+      <td>{{ t.restaurent_name }}</td>
+      <td>${{ t.cost }}</td>
+      
+    </tr>
+    </tbody>
+    </table>
+    <div align="center">
+        <h5 class="m-6">The Total Price of the Cart: {{ getTotal() | currency}}</h5>
+        <a class="btn btn-danger btn-space m-5" (click)="confirmRemove()"
+        >Remove All Items</a>
+        </div>
+>

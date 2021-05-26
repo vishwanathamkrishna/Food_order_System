@@ -1,0 +1,82 @@
+<div align="center">
+    <div class="card m-5" style="width: 38rem;">
+        <h5 class="card-header">Register</h5>
+        <div class="card-body">
+          <form class="col-md-12 offset-sm-1" style="margin-top: 5%;" ngNativeValidate  [formGroup]="registerUser" (ngSubmit)="onUserSubmit()">
+            <div class="form-group row">
+              <label for="staticName" class="col-sm-4 col-form-label">Name</label>
+              <div class="col-sm-6">
+                <input required
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Enter Name" 
+                  formControlName="name"
+                  [ngClass] = " { 'is-invalid': registerUser.get('name')?.touched && registerUser.get('name')?.invalid} "
+                  
+                />
+                <div class="invalid-feedback">
+                  <div>Name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-4 col-form-label">E-Mail Address</label>
+              <div class="col-sm-6">
+                <input required
+                  type="email" 
+                  class="form-control" 
+                  placeholder="Enter Email Address" 
+                  formControlName="email"
+                  [ngClass] = " { 'is-invalid': registerUser.get('email')?.touched && registerUser.get('email')?.invalid} "
+                 
+                  />
+                  <div class="invalid-feedback">
+                      <div>Email is required</div>
+                      <div>Email seems to be not valid</div>
+                    </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticPassword" class="col-sm-4 col-form-label">Password</label>
+              <div class="col-sm-6">
+                <input required
+                  type="password" 
+                  class="form-control" 
+                  placeholder="Enter Password" 
+                  formControlName="password"
+                  [ngClass] = " { 'is-invalid': registerUser.get('password')?.touched && registerUser.get('password')?.invalid} "
+              />
+                <div class="invalid-feedback">
+                  <div>Password is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="password" class="col-sm-4 col-form-label">Confirm-Password</label>
+              <div class="col-sm-6">
+                <input required
+                  type="password" 
+                  class="form-control" 
+                  placeholder="Re-Enter the Password" 
+                  formControlName="confirmPassword"
+                  [ngClass] = " { 'is-invalid': registerUser.get('confirmPassword')?.touched && registerUser.get('confirmPassword')?.invalid} "
+                 
+                  />
+                <div class="invalid-feedback">
+                  <div>password is required</div>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="form-group row">
+              <div class="col-sm-10  offset-sm-4">
+                <!--TODO: disable the button if the form is invalid in angular-->
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

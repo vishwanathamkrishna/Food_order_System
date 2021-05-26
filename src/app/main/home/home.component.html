@@ -1,0 +1,90 @@
+<div class="alert alert-info" role="alert">
+    <h3 class="text-center">FoodOrd Menu</h3>
+  </div>
+  <div class="mx-auto" style="width: 400px">
+    <br />
+    <input
+      type="text"
+      placeholder="search......"
+      class="form-control"
+      [(ngModel)]="query"
+    />
+  </div>
+  <br />
+  <div class="row" align="center">
+    <div *ngFor="let t of feedList | search: query; let index = index">
+      <div class="col-sm-3 card-space">
+        <div class="card" style="width: 18rem">
+          <img
+            src="{{ t.image_url }}"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ t.restaurent_name }}</h5>
+            <p class="card-text">
+              {{ t.description }} | {{ t.rating }} |
+              {{ t.cost }}<br />
+              {{ t.name }}
+            </p>
+            <a class="btn btn-primary" data-toggle="modal" (click)="addData(t)" data-target="#myModal">Add to Cart</a> &nbsp;&nbsp;
+            <a class="btn btn-primary float-end" data-toggle="modal" (click)="addToBuy(t)" data-target="#buyModal">Buy/Order</a>  
+            </div>   
+          </div>
+        </div><br>
+      </div>
+    </div>
+    <div class="container">
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <div class="modal-header">
+              <h4 class="modal-title">Confirm your selection</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+             <p> Add Order to Cart?</p>
+             <p>{{ clickedData.name}} | {{clickedData.cost | currency}}</p>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" (click)="confirmToCart(clickedData)" data-dismiss="modal">Add to Cart</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="container">
+        <div class="modal" id="buyModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            
+
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <div class="modal-body">
+               <p>Buy This Item</p>
+               <p>{{ clickedData.name}} | {{clickedData.cost | currency}}</p>
+              </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" (click)="confirmToOrder(clickedData)" data-dismiss="modal">Buy</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      
+  
+  
+    
+  </div>

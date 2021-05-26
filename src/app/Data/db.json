@@ -1,0 +1,74 @@
+{
+  "user-registration": [
+    {
+      "name": "Krishna",
+      "email": "krishna.vishwanatham96@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "name": "Roasted Chicken Biryani",
+      "restaurent_name": "Reddys Biryani Zone",
+      "cost": "190",
+      "email": "admin@edureka.com",
+      "id": 1
+    },
+    {
+      "name": "Roasted Chicken Biryani",
+      "restaurent_name": "Reddys Biryani Zone",
+      "cost": "190",
+      "email": "admin@edureka.com",
+      "id": 2
+    },
+    {
+      "name": "Roasted Chicken Biryani",
+      "restaurent_name": "Reddys Biryani Zone",
+      "cost": "190",
+      "email": null,
+      "id": 7
+    },
+    {
+      "name": "Chicken Momos",
+      "restaurent_name": "Mad Momos",
+      "cost": "69",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 8
+    },
+    {
+      "name": "Cajun Spiced Chicken",
+      "restaurent_name": "Kabablo",
+      "cost": "260",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 9
+    },
+    {
+      "name": "Cajun Spiced Chicken",
+      "restaurent_name": "Kabablo",
+      "cost": "260",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 10
+    }
+  ],
+  "payments": [
+    {
+      "card": "sdADAdad",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 3
+    }
+  ],
+  "address": [
+    {
+      "address": "9-25, Mahabubnagar",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 1
+    },
+    {
+      "address": "9-25, Mahabubnagar",
+      "email": "iamjohnyadav@gmail.com",
+      "id": 2
+    }
+  ]
+}

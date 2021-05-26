@@ -1,0 +1,14 @@
+<br />
+<div class="card">
+  <div class="card-header"><h3>Order Details</h3></div>
+  <br />
+  <!-- <div class="card w-75" *ngFor="let t of orderList; let i = index" (click)="orderList.splice(i, 1)"> -->
+  <div class="card w-75" *ngFor="let t of orderList">
+    <div class="card-body">
+      <h4 class="card-title text-center">Order Status :: Delivered</h4>
+      <h5 class="card-title">Order :: {{ t.name }}</h5>
+      <p class="card-text">{{ t.restaurent_name }} || ${{ t.cost }}</p>
+      <a (click)="cancelOrder(t.id)" class="btn btn-outline-danger">Cancel Order</a>
+    </div>
+  </div>
+</div>

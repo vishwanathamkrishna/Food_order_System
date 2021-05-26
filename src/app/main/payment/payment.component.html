@@ -1,0 +1,100 @@
+<app-settings></app-settings>
+<br />
+<div *ngIf="paymentValues.length == 0">
+  <a class="btn btn-success btn-space" (click)="newCardDisplay()"
+    >Add New Card</a
+  >
+  <h3 class="text-danger h3-top">No card is attached to this account.</h3>
+</div>
+
+<div class="row">
+  <div class="col-sm-6" *ngIf="paymentValues.length > 0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Payment Details</h5>
+        <p class="card-text">
+          Name :: {{ paymentValues[0].name }} <br />
+          Card Number ::<b>{{ paymentValues[0].card }}</b>
+        </p>
+        <a class="btn btn-primary btn-space" (click)="toggleDisplay()">Edit</a>
+        <a class="btn btn-danger btn-space" (click)="confirmDeleteCard()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6" *ngIf="!isShow">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Update</h3>
+        <h6>Card Number :: {{ paymentValues[0].card }}</h6>
+        <form name="form" (ngSubmit)="f.form.valid && updateCard()" #f="ngForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>To New Card</label>
+              <input
+                type="text"
+                name="card"
+                placeholder="Enter card details"
+                value="{{ paymentValues[0].card }}"
+                class="form-control"
+                [(ngModel)]="formData.card"
+                #card="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && card.invalid }"
+                required
+              />
+              <div *ngIf="f.submitted && card.invalid" class="invalid-feedback">
+                <div *ngIf="card.errors.required">card is required</div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-primary mr-1 btn-space">
+                Update card Details
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6" *ngIf="!isShowNewCard">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">New Card</h3>
+      <form
+        name="form"
+        (ngSubmit)="f.form.valid && newCardSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label>Enter Card </label>
+            <input
+              type="text"
+              name="card"
+              placeholder="Enter card details"
+              class="form-control"
+              [(ngModel)]="newCardData.card"
+              #card="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && card.invalid }"
+              required
+            />
+            <div *ngIf="f.submitted && card.invalid" class="invalid-feedback">
+              <div *ngIf="card.errors.required">card is required</div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <br />
+            <button class="btn btn-primary mr-1">Add Card</button>
+            <!-- <button class="btn btn-secondary mr-1">Reset</button> -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
